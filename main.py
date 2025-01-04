@@ -18,7 +18,7 @@ st.markdown("""
 
 st.radio("witch dessert is best? " , ["Cake", "Ice cream", "pie"])
 
-df = sns.load_dataset("pengiuns")
+df = sns.load_dataset("penguins")
 
 fig, ax = plt.subplots()
 sns.scatterplot(data=df, x="flipper_length_mm", y="bill_length_mm", hue="species"
