@@ -10,7 +10,11 @@ import requests
 
 st.markdown("""
 
-# Weather All Over The World """)
+# Weather All Over The World
+
+## city_name = input("Please enter the location")
+ """
+            )
   
 API_KEY = st.secrets["My_Secret"]
 
