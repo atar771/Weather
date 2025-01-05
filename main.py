@@ -22,7 +22,7 @@ st.markdown(
     /* Header styling */
     h1 {
         color: #333333;
-        text-align: center;
+        text-align: left;
         font-family: 'Arial', sans-serif;
     }
 
@@ -30,8 +30,8 @@ st.markdown(
     .weather-card {
         background-color: #ffffff; /* White card */
         border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
         font-family: 'Arial', sans-serif;
         color: #444444;
         text-align: center;
@@ -53,9 +53,10 @@ st.markdown(
 
     div.stTextInput > div > input {
         border-radius: 5px;
-        padding: 10px;
+        padding: 5px 10px;  
         font-size: 16px;
         border: 1px solid #cccccc;
+        
     }
     </style>
     """,
