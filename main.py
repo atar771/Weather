@@ -43,14 +43,19 @@ def display_weather(data):
         st.write(f"**Minimum Temperature:** {temp_min}°C")
         st.write(f"**Maximum Temperature:** {temp_max}°C")
         st.write(f"**Condition:** {weather.capitalize()}")
+
     else:
         st.error("Could not fetch weather data. Please try again.")
 
 def main():
     city_name = st.text_input("Enter the name of the city: ")
-    if city_name:
+    if st.button("Get Weather"):
+      if city_name:
         weather_data = get_weather(city_name)
         display_weather(weather_data)
 
 if __name__ == "__main__":
     main()
+
+  ##  df=sns.load_dataset("https://api.openweathermap.org/data/2.5/weather")
+
