@@ -10,9 +10,9 @@ import requests
 
 st.markdown("""
 
-# Weather All Over The World 
+# Weather All Over The World """)
   
-## API_KEY = st.secrets["My_Secret"]
+API_KEY = st.secrets["My_Secret"]
 
 
 def get_weather(city_name):
