@@ -12,7 +12,6 @@ st.markdown("""
 
 # Weather All Over The World
 
-##  input("Please enter the location", [city_name])
  """
             )
   
