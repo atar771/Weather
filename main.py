@@ -4,21 +4,20 @@ import streamlit as st
 import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
-import requests
 
 ##Weather_location_ask=input ("Search City")
 ##print ()
 ##import requests
 ##url =f"https://api.openweathermap.org/data/3.0/onecall?lat"
 ##print(url)
-##response = requests.get("https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}")
+##response = requests.get("https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}")
 
 ##secret = st.secrets["my_secret"]
 ##st.text(f"my secret is {secret}, dont tell anyone")
 
 ##st.markdown("""
-# Title   
-## Subtitle
+# Weather    
+## input ("Search City")
 
 ##- bullet 1
 ##- bullet 2
@@ -50,17 +49,18 @@ import requests
 ##    st.plotly_chart(fig)
 
 
+import requests
 
 # Replace with your OpenWeatherMap API key
-API_KEY = "c22111555d8dbc69c4700a23bfb0eeea"
+API_KEY = st.secrets["My_Secret"]
 
 
 def get_weather(city_name):
-    base_url = f"https://api.openweathermap.org/data/2.5/weather"
+    base_url = "https://api.openweathermap.org/data/2.5/weather"
     params = {
         "q": city_name,
         "appid": API_KEY,
-        "units": "metric" , # Use 'metric' for Celsius, 'imperial' for Fahrenheit
+        "units": "metric"  # Use 'metric' for Celsius, 'imperial' for Fahrenheit
     }
 
     try:
@@ -80,17 +80,13 @@ def display_weather(data):
         temp = data["main"].get("temp")
         temp_min = data["main"].get("temp_min")
         temp_max = data["main"].get("temp_max")
-        humidity = data["main"].get( "humidity")
-
         weather = data["weather"][0].get("description")
 
         print(f"\nWeather in {city}, {country}:")
         print(f"Temperature: {temp}°C")
-        print(f"min Temperature: {temp_min}°C")
-        print(f"max Temperature: {temp_max}°C")
+        print(f"Minimum Temperature: {temp_min}°C")
+        print(f"Maximum Temperature: {temp_max}°C")
         print(f"Condition: {weather.capitalize()}")
-        print(f"Humidity: {humidity}")
-
     else:
         print("Could not fetch weather data. Please try again.")
 
