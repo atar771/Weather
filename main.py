@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 
 
-secret = st.secrets{"my_secret"}
+secret = st.secrets["my_secret"]
 st.text(f"my secret is {secret}, dont tell anyone")
 
 st.markdown("""
@@ -41,4 +41,4 @@ elif plot_type == "Plotly":
     st.plotly_chart(fig)
 
 
-url ="https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
+##url ="https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
