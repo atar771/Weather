@@ -6,9 +6,66 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import requests
 
-st.markdown("""
+##st.markdown("""
 # Weather All Over The World
-""")
+##""")
+
+st.markdown(
+    """
+    <style>
+    /* Background styling */
+    .main {
+        background-color: #f5f5f5; /* Light gray background */
+        padding: 20px;
+    }
+
+    /* Header styling */
+    h1 {
+        color: #333333;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* Weather card styling */
+    .weather-card {
+        background-color: #ffffff; /* White card */
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: 'Arial', sans-serif;
+        color: #444444;
+        text-align: center;
+    }
+
+    /* Button and input styling */
+    div.stButton > button {
+        background-color: #007BFF; /* Bootstrap blue */
+        color: white;
+        border-radius: 5px;
+        font-size: 12px;
+        padding: 5px 15px;
+        cursor: pointer;
+    }
+
+    div.stButton > button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    div.stTextInput > div > input {
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #cccccc;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Page Title
+st.markdown("<h1>🌤 Weather Around the World</h1>", unsafe_allow_html=True)
+
+
 
 API_KEY = st.secrets["My_Secret"]
 
@@ -48,8 +105,16 @@ def display_weather(data):
         st.error("Could not fetch weather data. Please try again.")
 
 def main():
-    city_name = st.text_input("Enter the name of the city: ")
-    if st.button("Get Weather"):
+    # Use columns to position the input box and button side by side
+    col1, col2 = st.columns([3, 1])  # Adjust the width ratios if needed
+
+    with col1:
+        city_name = st.text_input("Enter the name of the city:", label_visibility="collapsed")
+
+    with col2:
+        get_weather_btn = st.button("Get Weather")
+
+    if get_weather_btn:
       if city_name:
         weather_data = get_weather(city_name)
         display_weather(weather_data)
