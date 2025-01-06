@@ -5,8 +5,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
 import requests
+import json
 from datetime import datetime
-import pytz
 import pandas as pd
 
 
@@ -71,7 +71,8 @@ st.markdown(
 # Page Title
 st.markdown("<h1>🌤 Weather Around the World</h1>", unsafe_allow_html=True)
 
-
+current_time = datetime.now().strftime(" %B %d %Y   %I:%M %p")
+st.write(f" Your Local Time :    {current_time}")
 
 API_KEY = st.secrets["My_Secret"]
 
@@ -113,7 +114,6 @@ def display_weather(data):
 
 
 def main():
-
     col1, col2 = st.columns([3, 1])
 
     with col1:
@@ -125,11 +125,9 @@ def main():
     if get_weather_btn:
       if city_name:
         weather_data = get_weather(city_name)
-        current_time = datetime.now().strftime(" %B %d %Y   %I:%M %p")
-        st.write(f" Local Time :    {current_time}")
         display_weather(weather_data)
-
-
+        with open('settings.json', 'w', encoding='utf-8') as json_file:
+            json.dump(weather_data, json_file, indent=4)
 
 if __name__ == "__main__":
     main()
