@@ -71,8 +71,7 @@ st.markdown(
 # Page Title
 st.markdown("<h1>🌤 Weather Around the World</h1>", unsafe_allow_html=True)
 
-current_time = datetime.now().strftime(" %B %d %Y   %I:%M %p")
-st.write(f" Local Time :    {current_time}")
+
 
 API_KEY = st.secrets["My_Secret"]
 
@@ -112,6 +111,7 @@ def display_weather(data):
     else:
         st.error("Could not fetch weather data. Please try again.")
 
+
 def main():
 
     col1, col2 = st.columns([3, 1])
@@ -125,6 +125,8 @@ def main():
     if get_weather_btn:
       if city_name:
         weather_data = get_weather(city_name)
+        current_time = datetime.now().strftime(" %B %d %Y   %I:%M %p")
+        st.write(f" Local Time :    {current_time}")
         display_weather(weather_data)
 
 
