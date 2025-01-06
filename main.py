@@ -101,12 +101,14 @@ def display_weather(data):
         temp_min = data["main"].get("temp_min")
         temp_max = data["main"].get("temp_max")
         weather = data["weather"][0].get("description")
+       
 
         st.markdown(f"### Weather in {city}, {country}")
         st.write(f"**Temperature:** {temp}°C")
         st.write(f"**Minimum Temperature:** {temp_min}°C")
         st.write(f"**Maximum Temperature:** {temp_max}°C")
         st.write(f"**Condition:** {weather.capitalize()}")
+
 
 
     else:
