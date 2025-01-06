@@ -5,6 +5,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
 import requests
+import pytz
+import pandas as pd
+
+
 
 ##st.markdown("""
 # Weather All Over The World
@@ -122,6 +126,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-  ##  df=sns.load_dataset("https://api.openweathermap.org/data/2.5/weather")
-
